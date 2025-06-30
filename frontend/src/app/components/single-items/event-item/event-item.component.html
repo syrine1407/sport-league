@@ -1,0 +1,61 @@
+<div class="event-card bg-white rounded-lg p-4 mb-4 shadow-sm border border-gray-100">
+  <!-- Header - Only for first item -->
+
+    <div class="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-200 text-sm font-medium text-gray-600">
+      <div>MATCH</div>
+      <div>STADIUM</div>
+      <div class="text-right">REVENUE</div>
+    </div>
+  
+
+  <!-- Content -->
+  <div class="grid grid-cols-3 gap-4 items-center">
+    <!-- Teams -->
+    <div class="flex flex-col">
+      <div class="font-medium" [ngClass]="{
+          'text-green-600': winner === 'homeTeam',
+          'text-gray-700': winner !== 'homeTeam'
+        }">
+        {{ event?.homeTeam?.name || 'TBD' }}
+      </div>
+      <div class="font-medium mt-1" [ngClass]="{
+          'text-green-600': winner === 'awayTeam',
+          'text-gray-700': winner !== 'awayTeam'
+        }">
+        {{ event?.awayTeam?.name || 'TBD' }}
+      </div>
+      <div class="text-xs text-gray-500 mt-2">
+        {{ event?.date | date:'mediumDate' || '-' }}
+      </div>
+    </div>
+
+    <!-- Stadium -->
+    <div class="text-gray-700 text-sm">
+      {{ event?.stadium?.name || '-' }}
+    </div>
+
+    <!-- Revenue -->
+    <div class="text-right font-medium text-gray-700">
+      ${{ (event?.revenue || 0) | number }}
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="flex justify-end gap-3 mt-4 pt-3 border-t border-gray-100">
+    <button (click)="openQrModal()" class="text-blue-500 hover:text-blue-700" title="QR Code">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M4 4a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1H5a1 1 0 01-1-1V4zM10 4a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V4zM4 9a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1H5a1 1 0 01-1-1V9zM10 9a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V9zM16 4a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V4zM16 9a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1V9zM4 14a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1H5a1 1 0 01-1-1v-1zM10 14a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1zM16 14a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1z"/>
+      </svg>
+    </button>
+    <button (click)="openDetailModal()" class="text-gray-600 hover:text-gray-800" title="Details">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+    <button (click)="deleteEvent()" class="text-red-500 hover:text-red-700" title="Delete">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+  </div>
+</div>

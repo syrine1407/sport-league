@@ -1,0 +1,66 @@
+<div class="dashboard-layout">
+  <!-- Sidebar -->
+  <div class="sidebar" [class.collapsed]="sidebarCollapsed">
+    <div class="sidebar-header">
+      <h3 style="margin-left: 10vh;">Admin Menu</h3>
+    </div>
+    <div class="sidebar-content">
+      <ul class="sidebar-menu">
+        <li><a href="#" class="sidebar-item">Home</a></li>
+        <li><a href="/admin" class="sidebar-item">Dashboard</a></li>
+        <li><a href="#" class="sidebar-item">logout</a></li>
+        <!--<li><a href="#" class="sidebar-item">Teams</a></li>
+        <li><a href="#" class="sidebar-item">Matches</a></li>
+        <li><a href="#" class="sidebar-item">Reports</a></li>
+        <li><a href="#" class="sidebar-item">logout</a></li> -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Hamburger Button -->
+    <div class="hamburger-container">
+      <button class="hamburger-button" (click)="toggleSidebar()">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+      <h1>Admin Dashboard</h1>
+      
+      @if (loading) {
+        <div class="loading-spinner">
+          Loading...
+        </div>
+      }
+
+      @if (!loading) {
+        <app-stats-cards [stats]="stats" />
+        
+        <div class="charts-container">
+          @if (stats.matchesPerTeam) {
+            <div class="chart-wrapper">
+              <app-matches-chart [data]="{ matchesPerTeam: stats.matchesPerTeam }" />
+            </div>
+          }
+          
+          @if (monthlyRevenue) {
+            <div class="chart-wrapper">
+              <app-monthly-revenue-chart [monthlyRevenue]="monthlyRevenue" />
+            </div>
+          }
+          
+          @if (stats.revenueByMonth) {
+            <div class="chart-wrapper">
+              <app-revenue-chart [data]="{ revenueByMonth: stats.revenueByMonth }" />
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

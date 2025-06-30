@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap");
+
+/* Base Styles */
+html {
+  font-family: "Quicksand", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+form {
+  background-color: #383737;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+form h1 {
+  color: white;
+  padding: 0 16px;
+}
+
+/* Dialog Content */
+.mat-dialog-content {
+  max-height: 65vh !important;
+  overflow-y: auto !important;
+  padding: 0 16px !important;
+  margin: 0 !important;
+}
+
+/* Form Layout */
+.form-input-container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-datetime-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+}
+
+.form-datetime-inputs mat-form-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-inputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Form Fields */
+mat-form-field {
+  width: 100%;
+}
+
+/* Dialog Actions */
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px !important;
+  margin-top: auto;
+  background-color: #383737;
+  position: sticky;
+  bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .form-datetime-inputs {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-datetime-inputs mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-dialog-content {
+    padding: 0 8px !important;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

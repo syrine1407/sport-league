@@ -1,0 +1,15 @@
+<div class="calendar-container">
+  <div class="button-container">
+    <button mat-raised-button class="close-btn" (click)="closeDialog()">
+      Close Calendar
+    </button>
+  </div>
+  <div class="navigation-buttons">
+    <button class="nav-btn prev-btn" (click)="previousWeek()">Previous Week</button>
+    <button class="nav-btn today-btn" (click)="goToToday()">Today</button>
+    <button class="nav-btn next-btn" (click)="nextWeek()">Next Week</button>
+  </div>
+  <div class="full-calendar">
+    <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+  </div>
+</div>

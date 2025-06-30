@@ -1,0 +1,59 @@
+.event-management {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.control-btn {
+  @apply flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors;
+}
+
+.control-btn:hover {
+  @apply shadow-sm;
+}
+
+.empty-state {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media (max-width: 640px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .controls {
+    padding: 12px;
+  }
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.controls {
+  display: inline-flex; /* Change from block to inline-flex */
+  max-width: max-content;
+}
+
+/* Pour les écrans plus larges */
+@media (min-width: 1024px) {
+  .controls {
+    padding: 1rem 2rem; /* Plus d'espace autour des boutons */
+  }
+  
+  .control-btn {
+    padding: 0.75rem 1.5rem; /* Boutons plus larges */
+    font-size: 1rem; /* Texte légèrement plus grand */
+  }
+}

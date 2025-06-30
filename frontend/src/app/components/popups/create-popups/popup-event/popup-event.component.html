@@ -1,0 +1,61 @@
+<form [formGroup]="myForm" (ngSubmit)="saveEvent()">
+  <h1 mat-dialog-title class="text-white text-center text-2xl md:text-3xl py-3">
+    {{ inputData.title }}
+  </h1>
+
+  <div mat-dialog-content>
+    <div class="form-input-container">
+      <div class="form-datetime-inputs">
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput formControlName="date" type="date" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Time</mat-label>
+          <input matInput formControlName="time" type="time" />
+        </mat-form-field>
+      </div>
+      
+      <div class="form-inputs">
+        <mat-form-field>
+          <mat-label>Select Home Team</mat-label>
+          <mat-select [(value)]="selectedHomeTeam" formControlName="homeTeam" matInput>
+            <mat-option *ngFor="let team of teams" [value]="team">{{ team.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Goals</mat-label>
+          <input matInput formControlName="homeGoals" type="number" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Select Away Team</mat-label>
+          <mat-select [(value)]="selectedAwayTeam" formControlName="awayTeam" matInput>
+            <mat-option *ngFor="let team of teams" [value]="team">{{ team.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Goals</mat-label>
+          <input matInput formControlName="awayGoals" type="number" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Ticket Price</mat-label>
+          <input matInput formControlName="ticketPrice" type="number" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Spectators</mat-label>
+          <input matInput formControlName="spectators" type="number" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-flat-button color="warn" (click)="closePopup(false)" [mat-dialog-close]>Close</button>
+  </div>
+</form>

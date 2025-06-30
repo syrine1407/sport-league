@@ -1,0 +1,31 @@
+.event-card {
+  transition: all 0.2s ease;
+}
+
+.event-card:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-color: #e5e7eb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .event-card {
+    padding: 12px;
+  }
+  
+  .event-card > div {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  .event-card > div > div:last-child {
+    grid-column: span 2;
+    text-align: left !important;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f3f4f6;
+  }
+  
+  .flex.justify-end {
+    justify-content: flex-start;
+  }
+}

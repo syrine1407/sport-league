@@ -1,0 +1,13 @@
+<div class="qr-container">
+    <h2>Match Ticket</h2>
+    <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    
+    <div class="match-info">
+      <p><strong>{{ match.homeTeam.name }} vs {{ match.awayTeam.name }}</strong></p>
+      <p>Date: {{ match.date | date }}</p>
+      <p>Time: {{ match.time }}</p>
+      <p>Stadium: {{ match.stadium?.name }}</p>
+    </div>
+  
+    <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+  </div>
