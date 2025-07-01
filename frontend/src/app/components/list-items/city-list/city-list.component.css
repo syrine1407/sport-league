@@ -1,0 +1,57 @@
+/* Style des boutons d'export - Version Stadium */
+.export-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.export-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 14px;
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.export-btn:active {
+  transform: translateY(0);
+}
+
+.csv-btn {
+  background-color: #4CAF50; /* Vert Stadium */
+  color: white;
+}
+
+/* Style pour un éventuel bouton PDF */
+.pdf-btn {
+  background-color: #2196F3; /* Bleu Stadium */
+  color: white;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .export-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .export-btn {
+    justify-content: center;
+  }
+}

@@ -1,17 +1,39 @@
-@if(cities.length == 0){
-<div>
-  <p class="text-gray-400 text-center text-2xl mt-5 mb-5">
-    There aren't existing cities.
-  </p>
-</div>
-}@else {
-<div class="city-lst mt-12">
-  @for (singleCity of cities; track singleCity.id) {
-  <app-city-item
-    [city]="singleCity"
-    (refreshCities)="refreshCities()"
-    [isFirst]="singleCity === cities[0]"
-  ></app-city-item>
+<div class="container">
+  @if(cities.length == 0) {
+    <div>
+      <p class="text-gray-400 text-center text-2xl mt-5 mb-5">
+        There aren't existing cities.
+      </p>
+    </div>
+  } @else {
+    <!-- Bouton d'export avec le style Stadium -->
+    <div class="export-buttons">
+      <button 
+        (click)="exportToCSV()"
+        class="export-btn csv-btn"
+      >
+        <span class="icon">📊</span>
+        Export CSV
+      </button>
+      
+      <!-- Bouton PDF optionnel -->
+      <!-- <button 
+        (click)="exportToPDF()"
+        class="export-btn pdf-btn"
+      >
+        <span class="icon">📄</span>
+        Export PDF
+      </button> -->
+    </div>
+
+    <div class="city-lst mt-4">
+      @for (singleCity of cities; track singleCity.id) {
+        <app-city-item
+          [city]="singleCity"
+          (refreshCities)="refreshCities()"
+          [isFirst]="singleCity === cities[0]"
+        ></app-city-item>
+      }
+    </div>
   }
 </div>
-}

@@ -1,20 +1,34 @@
-@if(stadiums.length == 0){
-  <div>
-    <p class="text-gray-400 text-center text-2xl mt-5 mb-5">
+<div class="controls">
+  <div class="export-buttons" >
+    <button (click)="exportToCSV()" class="export-btn csv-btn">
+      <span class="icon">📊</span>
+      Exporter en CSV
+    </button>
+    <button (click)="exportToPDF()" class="export-btn pdf-btn">
+      <span class="icon">📄</span>
+      Exporter en PDF
+    </button>
+  </div>
+</div>
+
+@if (stadiums.length === 0) {
+  <div class="empty-state">
+    <p class="empty-message">
       There aren't existing stadiums.
     </p>
   </div>
-  }@else {
-  <div class="stadium-lst mt-12">
-    <!-- Add the map component -->
+} @else {
+  <div #exportContent class="content-wrapper">
     <app-stadium-map [stadiums]="stadiums"></app-stadium-map>
     
-    @for (singleStadium of stadiums; track singleStadium.id) {
-    <app-stadium-item
-      [stadium]="singleStadium"
-      [isFirst]="singleStadium === stadiums[0]"
-      (refreshStadiums)="refreshStadiums()"
-    ></app-stadium-item>
-    }
+    <div class="stadium-list">
+      @for (stadium of stadiums; track stadium.id) {
+        <app-stadium-item
+          [stadium]="stadium"
+          [isFirst]="stadium === stadiums[0]"
+          (refreshStadiums)="refreshStadiums()">
+        </app-stadium-item>
+      }
+    </div>
   </div>
-  }
+}

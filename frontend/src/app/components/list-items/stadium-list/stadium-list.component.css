@@ -1,0 +1,85 @@
+/* Styles de base */
+:host {
+  display: block;
+  padding: 20px;
+}
+
+/* Contrôles */
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Boutons d'export */
+.export-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.export-btn:active {
+  transform: translateY(0);
+}
+
+.csv-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pdf-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+/* État vide */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.empty-message {
+  color: #757575;
+  font-size: 1.2rem;
+}
+
+
+
+.stadium-list {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .export-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .export-btn {
+    justify-content: center;
+  }
+}
